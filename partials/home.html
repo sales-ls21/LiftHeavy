@@ -1,9 +1,12 @@
+<div ng-include=" 'partials/sidebar.html' "></div>
 <h1>Do You EVEN Lift, Bro?</h1>
 <p>Kidding...of course you do. That's why you're here. You're the gym rat that's looking for a way to take the heavy lifting out of workout planning. Well, you've found it. LiftHeavy is your one stop shop for finding exercises, either by body part, equipment, or name, creating workout plans, by day or week, and tracking your progress with our nifty charts.</p>
-<p>These services are completely free to use because, well, we're lifters too and we feel your pain. you can browse the site to find exercises, but if you're looking to actually track your progress with our downloadable workout sheets, upload your finished workout information, and track your progress, you'll need to create an account. It's an easy progress that you can do with either Google or your regular email, if you don't have Gmail. We'll walk you through the getting started process, but, if you ever need a spotter, check out the About Us page for contact info. </p>
+<p>These services are completely free to use because, well, we're lifters too and we feel your pain. You can browse the site to find exercises, but if you're looking to actually track your progress with our downloadable workout sheets, upload your finished workout information, and track your progress, you'll need to create an account. It's an easy progress that you can do with either Google or your regular email, if you don't have Gmail. We'll walk you through the getting started process, but, if you ever need a spotter, check out the About Us page for contact info. </p>
 
 <h2>Click below for a sample of the over 800 Moves in our Database!</h2>
-<button ng-click="getSample()">Show Lifts</button>
+<button ng-click="getSample()">Random Sample</button>
+<button ng-click="getByMuscle()">See Exercises by Muscle</button>
+<button ng-click="getByEquipment()">See Sample Bodyweight Exercises</button>
 
 <div ng-repeat="lift in movements">
 	<div class="card">
@@ -13,5 +16,7 @@
 		<p>Muscle Worked: {{lift.muscle}}</p>
 		<button ng-click="save()">Save This</button>
 	</div>
+</div>
+
 </div>
 

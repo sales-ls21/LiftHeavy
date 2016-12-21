@@ -1,0 +1,29 @@
+<div ng-controller="sideNavCtrl" layout="column" style="height: 500px;" ng-cloak>
+  <section layout="row" flex>
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop md-whiteframe="4">
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Site Navigation</h1>
+      </md-toolbar>
+      <md-content layout-margin>
+       		<p><a href="/browseExercises">Browse Exercises</a></p> 
+          <p><a href="/viewSaved">View Saved Exercises and Workouts</a></p>
+          <p><a href="/createPlan">Create a Plan</a></p>
+          <p><a href="/trackProgress">View or Update Progress</a></p>
+          <p><a href="/login">Log In/Sign Up</a></p>
+          <p><button ng-click="logout()">Log Out</button></p>
+       <!--  <md-button ng-click="toggleLeft()" class="md-accent">
+          Close Navigation
+        </md-button> -->
+      </md-content>
+    </md-sidenav>
+    <!-- <md-content flex layout-padding>
+      <div layout="column" layout-align="top center">
+        <div>
+          <md-button ng-click="toggleLeft()" class="md-raised">
+            Close
+          </md-button>
+        </div>
+      </div>
+    </md-content> -->
+  </section>
+</div>

@@ -1,0 +1,33 @@
+<div ng-include="partials/sidebar.html"></div>
+
+<h1>Needing Some Inspiration to Spice up that Gym Session?</h1>
+
+<p>The buttons below allow you to filter exercises by the listed categories.</p>
+
+<div>
+<h3>Filter by Equipment Needed</h3>
+<p>Whips? Chains? Handcuffs? Nope, not that kind of party. BUT, if you're looking to work the body with equipment, we've got you covered. Search for exercises that require dumbbells, barbells, kettlebells, and, well, yes, even chains...(but seriously? No handcuffs)</p>
+<input type="text" placeholder="Your weapon of choice" ng-model="equipment">
+<button ng-click="findByEquipment()">Get 'er done!</button>	
+</div>
+<div>
+<h3>Filter by Muscle Group</h3>
+<p>So you want guns? Filter by "biceps". Lats of steel? Search "lats". Thighs to crush glass? Go ahead and look for "hamstrings" or "quadriceps".</p>
+<input type="text" ng-model="muscle" placeholder="That body part you think is weak...">
+<button ng-click="getMuscleExercises()">Help me out!</button>
+</div>
+
+<h3>You can also enter the name of an exercise if you'd like to see how it's done. Enter the search term below.</h3>
+<input type="text" ng-model="searchTerm">
+<md-button ng-click="findByName()">Find it!</md-button>
+<br/>
+
+<div ng-repeat="item in exercises">
+	<div class="card">
+		<p>The Move: {{item.exercise}}</p>
+		<img src="{{item.image}}">
+		<p>You'll need: {{item.equipment}}</p>
+		<p>Muscle Worked: {{item.muscle}}</p>
+		<button id={{item.id}} ng-click="save()">Save This</button>
+	</div>
+</div>
