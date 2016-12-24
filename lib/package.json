@@ -21,6 +21,7 @@
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "materialize-css": "^0.97.8",
-    "mdbootstrap": "^4.2.0"
+    "mdbootstrap": "^4.2.0",
+    "toastr": "^2.1.2"
   }
 }

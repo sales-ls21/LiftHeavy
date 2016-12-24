@@ -1,12 +1,13 @@
 "use strict";
 
-app.controller("browseCtrl", function($scope, userFactory, mainDataFactory){
-	
+app.controller("browseCtrl", function($location, $scope, userFactory, mainDataFactory, authFactory){
+	let user = authFactory.getUser();
+
 	$scope.searchTerm = "";
 	$scope.exercises = [];
 	$scope.muscle = "";
 	$scope.equipment= "";
-
+	
 
 	$scope.findByEquipment = ()=>{
 		console.log("clicked");
@@ -45,9 +46,12 @@ app.controller("browseCtrl", function($scope, userFactory, mainDataFactory){
 		});	
 	};
 
-	// $scope.save = ()=>{
-	// 	userFactory.saveUserExercises()=>{
-
-	// 	};
-	// };
+	$scope.save = ()=>{
+		if (user === undefined){
+			$location.url("/login");
+			toastr.warning("Hard to save your stuff if you're not logged in, son.");
+		} else {
+			$location.url("/createPlan");
+		}
+	};
 });

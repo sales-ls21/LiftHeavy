@@ -1,28 +1,44 @@
 "use strict";
 
 app.factory("userFactory", function($http, FBInfo){
+	let planId;
 
-	let saveUserExercises = (exerciseObj)=>{
+	let saveUserPlan = (plan, userObj)=>{
 		return new Promise ((resolve, reject)=>{
-			$http.post(`${FBInfo.databaseURL}/exercises.json`)
-			.then((obj)=>{
-				resolve(obj);
-			});	
-		});
-	};
-
-	let getUserExercises = (user)=>{
-		return new Promise ((resolve, reject)=>{
-			$http.get(`${FBInfo.databaseURL}/movements.json?orderBy="user"&equalTo="${user}"`)
+			$http.post(`${FBInfo.databaseURL}/plans/${plan}.json`, angular.toJson(userObj))
 			.then((obj)=>{
 				resolve(obj.data);
 			});	
 		});
 	};
 
-	let getUserWorkout = (user, date)=>{
-
+	let saveUserExercises = (planToSearch, exerciseToSave)=>{
+		console.log(exerciseToSave);
+		return new Promise ((resolve, reject)=>{
+			$http.patch(`${FBInfo.databaseURL}/plans/${planToSearch}.json`, angular.toJson(exerciseToSave))
+			.then((obj)=>{
+				resolve(obj);
+			});
+  		});	
 	};
 
-	return{saveUserExercises, getUserExercises};
+	let getUserPlans = (name)=>{
+		return new Promise((resolve, reject)=>{
+			$http.get(`${FBInfo.databaseURL}/plans.json?orderBy="user"&equalTo="${name}"`)
+			.then((obj)=>{
+				resolve(obj.data);
+			});
+		});
+	};
+
+	let getByPlanName = (name)=>{
+		return new Promise((resolve, reject)=>{
+			$http.get(`{FBInfo.databaseURL}/plans/${name}.json`)
+			.then((obj)=>{
+				resolve(obj);
+			});
+		});
+	};
+
+	return{getByPlanName, saveUserPlan, saveUserExercises, getUserPlans};
 });

@@ -5,11 +5,11 @@
         <h1 class="md-toolbar-tools">Site Navigation</h1>
       </md-toolbar>
       <md-content layout-margin>
-       		<p><a href="/browseExercises">Browse Exercises</a></p> 
-          <p><a href="/viewSaved">View Saved Exercises and Workouts</a></p>
-          <p><a href="/createPlan">Create a Plan</a></p>
-          <p><a href="/trackProgress">View or Update Progress</a></p>
-          <p><a href="/login">Log In/Sign Up</a></p>
+       		<p><button><a href="/browseExercises">Browse Exercises</a></button></p> 
+          <p><button ng-click="viewSaved()">View Saved Exercises and Workouts</button></p>
+          <p><button ng-click="createPlan()">Create a Plan</a></p>
+          <p><button ng-click="trackProgress()">View or Update Progress</a></p>
+          <p><button><a href="/login">Log In/Sign Up</a></button></p>
           <p><button ng-click="logout()">Log Out</button></p>
        <!--  <md-button ng-click="toggleLeft()" class="md-accent">
           Close Navigation

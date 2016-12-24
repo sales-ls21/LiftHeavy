@@ -50,6 +50,21 @@ app.config(function($routeProvider){
 		resolve: {isAuth}
 
 	})
+	.when("/findExercises", {
+		templateUrl: "partials/findExercises",
+		controller: "findExercisesCtrl",
+		resolve: {isAuth}
+	})
+	.when("/getDetails/:item.name",{
+		templateUrl: "partials/getDetails.html",
+		controller: "getDetailsCtrl",
+		resolve: {isAuth}
+	})
+	.when("/edit:item.name", {
+		templateUrl: "partials/editDetails.html",
+		controller: "editCtrl",
+		resolve: {isAuth}
+	})
 	.otherwise("/");
 
 }).config(function($locationProvider){

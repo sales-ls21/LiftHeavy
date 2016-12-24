@@ -1,0 +1,11 @@
+<h1>Here you go...here's what you said you wanted.</h1>
+
+<div ng-repeat="item in plans">
+	<a href="/getDetails/{{item.name}}">{{item.name}}</a>
+	<p>{{item.day}}</p>
+	<p>{{item.frequency}}</p>
+	<p>{{item.targetReps}}</p>
+	<button ng-click="completed()">Done this one?</button>
+	<!-- need to figure out the right way to get specific details -->
+	<button href="/edit{{item.name}}">Edit Plan Basics</button>
+</div>

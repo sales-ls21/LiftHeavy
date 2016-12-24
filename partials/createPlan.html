@@ -1,0 +1,16 @@
+<h1>Create a Plan</h1>
+<h3>Go ahead, steal some exercises from us, save 'em, do 'em, come back and track 'em, then go do it again. We don't mind.</h3>
+
+<div>
+	Enter a Plan Name: <input type="text" placeholder="Butt Buster" ng-model="plan.name">
+</div>
+<div>
+	What day you gonna do this?: <input type="text" placeholder="Monday" ng-model="plan.day">
+</div>
+<div>
+	How often you wanna torture yourself?: <input type="text" placeholder="Once a week" ng-model="plan.frequency">
+</div>
+<div>
+	So, how many reps you got in you?: <input type="text" placeholder="10-12" ng-model="plan.targetReps">
+</div>
+<button ng-click="savePlan()">Save Plan</button>
