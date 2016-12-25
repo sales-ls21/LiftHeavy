@@ -55,12 +55,12 @@ app.config(function($routeProvider){
 		controller: "findExercisesCtrl",
 		resolve: {isAuth}
 	})
-	.when("/getDetails/:item.name",{
+	.when("/getDetails/:name",{
 		templateUrl: "partials/getDetails.html",
 		controller: "getDetailsCtrl",
 		resolve: {isAuth}
 	})
-	.when("/edit:item.name", {
+	.when("/edit/:name", {
 		templateUrl: "partials/editDetails.html",
 		controller: "editCtrl",
 		resolve: {isAuth}

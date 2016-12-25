@@ -21,5 +21,4 @@ app.controller("viewSavedCtrl", function($location, $scope, userFactory, authFac
 	$scope.completed = ()=>{
 		$location.url("/trackProgress");
 	};
-
 });

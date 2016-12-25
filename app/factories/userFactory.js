@@ -3,21 +3,27 @@
 app.factory("userFactory", function($http, FBInfo){
 	let planId;
 
-	let saveUserPlan = (plan, userObj)=>{
+	let saveUserPlan = (userObj)=>{
 		return new Promise ((resolve, reject)=>{
-			$http.post(`${FBInfo.databaseURL}/plans/${plan}.json`, angular.toJson(userObj))
+			$http.post(`${FBInfo.databaseURL}/plans.json`, angular.toJson(userObj))
 			.then((obj)=>{
 				resolve(obj.data);
 			});	
 		});
 	};
 
-	let saveUserExercises = (planToSearch, exerciseToSave)=>{
-		console.log(exerciseToSave);
+	let saveUserExercises = (id, userObj)=>{
+		console.log(id, userObj);
 		return new Promise ((resolve, reject)=>{
-			$http.patch(`${FBInfo.databaseURL}/plans/${planToSearch}.json`, angular.toJson(exerciseToSave))
+			$http.get(`${FBInfo.databaseURL}/movements.json?orderBy="exercise"&equalTo="${id}"`)
 			.then((obj)=>{
-				resolve(obj);
+				console.log(obj.data);
+				let objData = Object.keys(obj.data);
+				let move = objData[0];
+				$http.patch(`${FBInfo.databaseURL}/movements/${move}.json`, angular.toJson(userObj))
+				.then((obj)=>{
+					resolve(obj);	
+				});
 			});
   		});	
 	};
@@ -33,12 +39,25 @@ app.factory("userFactory", function($http, FBInfo){
 
 	let getByPlanName = (name)=>{
 		return new Promise((resolve, reject)=>{
-			$http.get(`{FBInfo.databaseURL}/plans/${name}.json`)
+			$http.get(`${FBInfo.databaseURL}/movements.json?orderBy="planId"&equalTo=${name}`)
 			.then((obj)=>{
-				resolve(obj);
+				resolve(obj.data);
 			});
 		});
 	};
 
-	return{getByPlanName, saveUserPlan, saveUserExercises, getUserPlans};
+	let deleteExercise = (id, updatedObj)=>{
+		return new Promise((resolve, reject)=>{
+			$http.get(`${FBInfo.databaseURL}/movements.json?orderBy="exercise"&equalTo="${id}"`)
+			.then((obj)=>{
+				console.log(obj);
+				// $http.patch(`${FBInfo.databaseURL}/movements/${}.json`, angular.toJson(updatedObj))
+				// .then((obj)=>{
+				// 	resolve(obj);
+				// });
+			});
+		});
+	};
+
+	return{deleteExercise, getByPlanName, saveUserPlan, saveUserExercises, getUserPlans};
 });

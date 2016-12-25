@@ -2,9 +2,9 @@
 
 <div class="printDiv">
 	<div ng-repeat="item in planObj">
-		<h1>Plan: {{planObj}} </h1>
-		<p>Reps per Exercise: {{item.targetReps}}</p>
-		<p>{{item.exercise}}</p>
+		<h3>{{item.exercise}}</h3>
+		<p>Muscle Group: {{item.muscle}}</p>
+		<p>Show Me: <a href={{item.info}}>{{item.info}}</a></p>
 	</div>
 	<div>
 		<button ng-click="printMe()">Print This Page</button>

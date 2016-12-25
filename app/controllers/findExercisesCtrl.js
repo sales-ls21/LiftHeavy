@@ -43,17 +43,16 @@ app.controller("findExercisesCtrl", function($scope, $location, userFactory, mai
 		});
 	};
 	$scope.save = ()=>{
-		let plan = $scope.planToSearch.name;
-		let name = $scope.exercisesToSave.exercise;
+		let id = $scope.exercisesToSave.exercise;
+		let planId = $scope.planToSearch.planId;
 		let userObj = {
-			exercise: name,
-			user: user
+			planId: planId,
 		};
-		console.log(plan, userObj);
-		userFactory.saveUserExercises(plan, userObj)
+		userFactory.saveUserExercises($scope.exercisesToSave.exercise, userObj)
 		.then((obj)=>{
 			toastr.success("Ok, added. What now?");
 			$location.url("/viewSaved");
+			$scope.$apply();
 		});
 	};
 	
