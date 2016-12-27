@@ -1,13 +1,11 @@
-<div class="row">
-	<div class="col s8 offset-s2">
+<div ng-include=" 'partials/sidebar.html' "></div>
+<div class="row full-bg-img flex-center">
+	<div class="col-md-8 content">
 		<h1>You been here before?</h1>
 		<h3>Well, you know the drill. Log in, check your workout, track your lifts, sign out, REPEAT. </h3>
-	</div>
-</div>
-<div class="row">
-	<div class="col s8 offset-s2">
-	<button ng-click="googleSignIn()">Sign In with Google</button>
-		<section class="auth-form">
+	<!-- </div> -->
+<!-- 	<div class="col-md-12">
+ -->		<section class="auth-form">
 			<div>
 				Name: <input type="text" autofocus="true" ng-model="user.name">
 			</div>
@@ -18,10 +16,12 @@
 				Password: <input type="password" ng-model="user.password">
 			</div>
 			<div>
-				<button class="btn btn-info" ng-click="login()">Login</button>
-				<button class="btn btn-default" ng-click="register()">Sign Up!</button>
+				<button class="btn btn-primary" ng-click="login()">Login</button>
+				<button class="btn btn-primary" ng-click="googleSignIn()">Sign In with Google</button>
 				<button class="btn btn-primary" ng-click="home()">Cancel</button>
 			</div>
 		</section>
+		<label class="google">OR if you're uncalloused...</label>
+				<button class="btn btn-primary" ng-click="register()">Sign Up!</button>
 	</div>
 </div>
