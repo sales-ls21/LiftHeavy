@@ -1,6 +1,18 @@
 "use strict";
 
 app.controller("browseCtrl", function($location, $scope, userFactory, mainDataFactory, authFactory){
+	$(".equipTag").click(function(e){
+		$(".equipDiv").show();
+	});
+
+	$(".nameTag").click(function(e){
+		$(".nameDiv").show();
+	});
+
+	$(".muscleTag").click(function(e){
+		$(".muscleDiv").show();
+	});
+
 	let user = authFactory.getUser();
 
 	$scope.searchTerm = "";
@@ -10,7 +22,7 @@ app.controller("browseCtrl", function($location, $scope, userFactory, mainDataFa
 	
 
 	$scope.findByEquipment = ()=>{
-		console.log("clicked");
+		$(".equipDiv").hide();
 		mainDataFactory.findByEquipment($scope.equipment)
 		.then((obj)=>{
 			let idArray = Object.keys(obj);
@@ -23,6 +35,7 @@ app.controller("browseCtrl", function($location, $scope, userFactory, mainDataFa
 	};
 
 	$scope.findByName = ()=>{
+		$(".nameDiv").hide();
 		mainDataFactory.findByName($scope.searchTerm)
 		.then((obj)=>{
 			let idArray = Object.keys(obj);
@@ -34,6 +47,7 @@ app.controller("browseCtrl", function($location, $scope, userFactory, mainDataFa
 		});
 	};
 	$scope.getMuscleExercises = ()=>{
+		$(".muscleDiv").hide();
 		mainDataFactory.getMuscleExercises($scope.muscle)
 		.then((obj)=>{
 			let idArray = Object.keys(obj);

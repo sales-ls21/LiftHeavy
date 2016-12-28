@@ -1,18 +1,45 @@
 <div ng-include=" 'partials/sidebar.html' "></div>
-
-<div>
-<h1>You back, bro?</h1>
-</div>
-
-<div>
-	<h3>Today's Workout</h3>
-	<div>
+<div class="row">
+	<div class="centerpiece col-md-12">
+		<h1>Back for some more, huh? We told you. </h1>
 	</div>
 </div>
 
-<div>
-	<h3>Your Progress</h3>
-	<div>
-		
+<div class="row panels">
+	<div class="today col-md-offset-1 col-md-4">
+		<h3>Today's Workout</h3>
+		<div class="col-md-12" ng-repeat="move in plan">
+			<h3>Today you've got: {{move.name}}</h3>
+			<p>Total Reps: {{move.targetReps}}</p>
+		</div>
+		<div ng-repeat="move in planExercises">
+			<img src="{{move.image}}">
+			<p>The Move: {{move.exercise}}</p>
+			<p>The Muscle: {{move.muscle}}</p>
+			<p>The Equipment: {{move.equipment}}</p>
+		</div>
+		<div>
+		When'd you do it? Enter a date. <input type="date" ng-model="updated.dateCompleted">
+		What weight did you use? <input type="text" ng-model="updated.weight">
+		How many reps per exercise you crank out? <input type="text" ng-model="updated.reps">
+		Total time? <input type="text" ng-model="updated.time">
+		Notes for yourself? <input type="textarea" ng-model="updated.notes">
+		<div ng-repeat="move in planExercises">
+		<p>Here's your planId: {{move.planId}}</p>		
+		</div>
+		<button class="btn btn-primary" ng-click="addStats()">Upload Stats</button>
+		</div>
 	</div>
+
+	<div class="col-md-6">
+		<h3>Your Progress</h3>
+		<div class="col-md-4" ng-repeat="stat in loadedStats">
+			<h4>Plan Name{{stat.name}}</h4>	
+			<p>Date Completed: {{stat.dateCompleted}}</p>
+			<p>Weight Used: {{stat.weight}}</p>
+			<p>Reps: {{stat.reps}}</p>
+			<p>Time to Complete: {{stat.time}}</p>
+			<p>Your Notes to Self {{stat.notes}}</p>
+		</div>
+</div>
 </div>

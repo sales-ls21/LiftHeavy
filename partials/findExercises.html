@@ -1,53 +1,57 @@
-<h1>Here's where the meat and potatoes are. Search for exercises and add 'em to your plan.</h1>
+<div ng-include="'partials/sidebar.html'"></div>
+<div class="row">
+	<div class="col-md-4">
+		<h1>Here's where the meat and potatoes are. Search for exercises and add 'em to your plan.</h1>
+		<h3>Use the dropdowns to search how you wish. </h3>
+		<div class="col-md-4">
+			<label>By Body Part</label>
+			<select ng-model="selectedPart">
+				<option>biceps</option>
+				<option>triceps</option>
+				<option>traps</option>
+				<option>hamstrings</option>
+				<option>quadriceps</option>
+				<option>shoulders</option>
+				<option>abs</option>
+				<option>calves</option>
+				<option>lats</option>
+			</select>
+			<button class="btn btn-primary" ng-click="findPart()">Get 'em!</button>
+		</div>
+		<div class="col-md-4">
+			<label>By Equipment</label>
+			<select ng-model="selectedEquipment">
+				<option>barbell</option>
+				<option>dumbbell</option>
+				<option>ball</option>
+				<option>machine</option>
+				<option>chains</option>
+				<option>kettlebell</option>
+				<option>bodyweight</option>
+			</select>
+			<button class="btn btn-primary" ng-click="findEquipment()">Find my weapon!</button>
+		</div>
+		<div class="col-md-8 col-md-offset-4">
+			<select ng-model="exercisesToSave" ng-options="item.exercise for item in exercises"></select>
+			<button class="btn btn-primary" ng-click="findPlans()">Show me my plans</button>
+		</div>
+		<div class="col-md-8 col-md-offset-4">
+			<select ng-model="planToSearch" ng-options="list.name for list in plans">	
+			</select>
+			<button class="btn btn-primary" ng-click="save()">Save This</button>
+		</div>
 
-<h3>Use the dropdowns to search how you wish. </h3>
+	<div class="col-md-4 searchCard" ng-repeat="item in exercises">
+		<p>The Move: {{item.exercise}}</p>
+		<img src="{{item.image}}">
+		<p>You'll need: {{item.equipment}}</p>
+		<p>Muscle Worked: {{item.muscle}}</p>
+	</div>
 
-<label>By Body Part</label>
-<select ng-model="selectedPart">
-	<option>biceps</option>
-	<option>triceps</option>
-	<option>traps</option>
-	<option>hamstrings</option>
-	<option>quadriceps</option>
-	<option>shoulders</option>
-	<option>abs</option>
-	<option>calves</option>
-	<option>lats</option>
-</select>
-<button ng-click="findPart()">Get 'em!</button>
-
-<label>By Equipment</label>
-<select ng-model="selectedEquipment">
-	<option>barbell</option>
-	<option>dumbbell</option>
-	<option>ball</option>
-	<option>machine</option>
-	<option>chains</option>
-	<option>kettlebell</option>
-	<option>bodyweight</option>
-</select>
-<button ng-click="findEquipment()">Find my weapon!</button>
-
-<div>
-	<select ng-model="exercisesToSave" ng-options="item.exercise for item in exercises"></select>
-</div>
-<button ng-click="findPlans()">Show me my plans</button>
-<div>
-	<select ng-model="planToSearch" ng-options="list.name for list in plans">	
-	</select>
-</div>
-<button ng-click="save()">Save This</button>
-
-<div class="card1" ng-repeat="item in exercises">
-	<p>The Move: {{item.exercise}}</p>
-	<img src="{{item.image}}">
-	<p>You'll need: {{item.equipment}}</p>
-	<p>Muscle Worked: {{item.muscle}}</p>
-</div>
-
-<div class="card2">
-	<p>The Move: {{selectedEquipment.exercise}}</p>
-	<img src="{{selectedEquipment.image}}">
-	<p>You'll need: {{selectedEquipment.equipment}}</p>
-	<p>Muscle Worked: {{selectedEquipment.muscle}}</p>
+	<div class="card2">
+		<p>The Move: {{selectedEquipment.exercise}}</p>
+		<img src="{{selectedEquipment.image}}">
+		<p>You'll need: {{selectedEquipment.equipment}}</p>
+		<p>Muscle Worked: {{selectedEquipment.muscle}}</p>
+	</div>
 </div>

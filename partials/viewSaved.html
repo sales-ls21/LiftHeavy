@@ -1,11 +1,18 @@
-<h1>Here you go...here's what you said you wanted.</h1>
-
-<div ng-repeat="item in plans">
-	<a href="/getDetails/{{item.planId}}">{{item.name}}</a>
-	<p>{{item.day}}</p>
-	<p>{{item.frequency}}</p>
-	<p>{{item.targetReps}}</p>
-	<button ng-click="completed()">Done this one?</button>
-	<!-- need to figure out the right way to get specific details -->
-	<button href="/edit/{{item.name}}">Edit Plan Basics</button>
+<div ng-include=" 'partials/sidebar.html' "></div>
+<div class="cardArea planList col-md-12">
+	<h1>Here you go...here's what you said you wanted.</h1>
+	<div class="row">
+		<div class="col-md-4 searchCard planCard" ng-repeat="item in plans">
+			<div class="card">
+			<a href="/getDetails/{{item.planId}}">{{item.name}}</a>
+			<p>{{item.day}}</p>
+			<p>{{item.frequency}}</p>
+			<p>{{item.targetReps}}</p>
+			<button class="btn btn-primary" ng-click="completed()">Done this one?</button>
+			<!-- need to figure out the right way to get specific details -->
+			<button class="btn btn-primary" href="/edit/{{item.name}}">Edit Plan Basics</button>
+			</div>
+		</div>
+	</div>
 </div>
+

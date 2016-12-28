@@ -46,6 +46,24 @@ app.factory("userFactory", function($http, FBInfo){
 		});
 	};
 
+	let updateStats = (planId, statObj)=>{
+		return new Promise((resolve, reject)=>{
+			$http.patch(`${FBInfo.databaseURL}/plans.json?orderBy="planId"&equalTo="${planId}"`, angular.toJson(statObj))
+			.then((obj)=>{
+			resolve(obj);
+			});
+		});
+	};
+
+	let getStats = (user)=>{
+		return new Promise((resolve, reject)=>{
+			$http.get(`${FBInfo.databaseURL}/plans.json?orderBy="completed"&equalTo=true`)
+			.then((obj)=>{
+				resolve(obj.data);
+			});
+		});
+	};
+
 	let deleteExercise = (id, updatedObj)=>{
 		return new Promise((resolve, reject)=>{
 			$http.get(`${FBInfo.databaseURL}/movements.json?orderBy="exercise"&equalTo="${id}"`)
@@ -59,5 +77,5 @@ app.factory("userFactory", function($http, FBInfo){
 		});
 	};
 
-	return{deleteExercise, getByPlanName, saveUserPlan, saveUserExercises, getUserPlans};
+	return{getStats, updateStats, deleteExercise, getByPlanName, saveUserPlan, saveUserExercises, getUserPlans};
 });

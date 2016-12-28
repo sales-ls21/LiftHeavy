@@ -34,20 +34,20 @@ body,
     padding: 20px;
 }
 
-.cardDiv{
-    background-color: white;
-    width: 100%;
-}
 .card{
+    height: 300px;
     text-align: center;
-    background-color: rgb(8, 23, 48);
+    font-weight: bold;
+    margin-bottom: 20px;
+    // background-color: rgb(8, 23, 48);
     color: white;
-    border: 2px solid silver;
+    // border: 2px solid silver;
 }
 
 .card img{
-    width: 100px;
-    height: 100px;
+    margin: 0 auto;
+    width: 200px;
+    height: 250px;
 }
 .content{
     text-align: center;
@@ -59,28 +59,78 @@ body,
 }
 
 .google{
+    display: block;
     margin: 10px;
     font-size: 16px;
 }
-.exercise{
-    border: 2px solid white;  
-    padding: 10px;
-    margin-top: 100px;
-    text-align: center;
+.secondNav{
+    position: absolute;
     color: white;
-    background-color: rgb(8, 23, 48);
+    margin-top: 50px;
+    background-color: rgb(8, 23, 48);  
+    width: 100%;
+}
+.cardArea{
+    position: absolute;
+    margin-top: 325px;
+    color: white;
+    text-align: center;
+}
+.planList{
+    position: fixed;
+    margin-top: 75px;
+    color:rgb(8, 23, 48);
+    background-color: white;
+    border: solid 1px white;
 }
 
 .searchCard{
-    background-color: rgb(8, 23, 48);
+    color: yellow;
+    text-align: center;  
+    margin-bottom: 50px; 
+}
+
+.equipDiv, .muscleDiv, .nameDiv{
+    display:none;
+    border:1px solid #F00;
+    width:250px;
     color: white;
-    height: 300px;
-    border: 2px solid white;
-    border-radius: 20px;
     text-align: center;
-    margin-top: 30px;
-    margin-left: 90px;
-    margin-bottom: 50px;
+    padding: 15px;
+}
+.cardDiv{
+    background-color: white;
+    width: 100%;
+}
+span{
+    font-weight: 900;
+    font-style: italic;
+}
+
+.panels{
+    font-weight: 900;
+    position: fixed;
+    margin-top: 110px;
+    text-align: center;
+    color: white;
+    // border: solid 1px white;
     padding: 15px;
 }
 
+.centerpiece{
+    font-weight: 900;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    margin-top: 50px;
+}
+
+.planForm{
+    margin-top: 75px;
+    color: white;
+    text-align: center; 
+}
+.planFormCard{
+    color: white;
+}
