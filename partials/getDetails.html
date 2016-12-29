@@ -1,18 +1,21 @@
-<h3>Here's what you thought you were able to do. If you haven't yet, go do it. There's a handy print button to make that easier for you. If you have done it, then record your stats. If a workout is done and there's no record, did you do it? Jus' sayin...</h3>
-
-<div class="printDiv">
-	<div ng-repeat="item in planObj">
-		<h3>{{item.exercise}}</h3>
-		<p>Muscle Group: {{item.muscle}}</p>
-		<p>Show Me: <a href={{item.info}}>{{item.info}}</a></p>
-	</div>
-	<div>
-		<button ng-click="printMe()">Print This Page</button>
-		<button ng-click="delete()">Nah, not this one.</button>
+<div ng-include="'partials/sidebar.html'"></div>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8 topline">
+		<h1>Workout Details</h1>
+		<h3>Here's what you thought you were able to do. If you haven't yet, go do it. There's a handy print button to make that easier for you. If you have done it, then record your stats. If a workout is done and there's no record, did you do it? Jus' sayin...</h3>	
+		<button class="btn btn-primary" ng-click="printMe()">Print This Page</button>
+		<div class="row">
+			<div class="col-md-4 printDiv" ng-repeat="item in planObj">
+				<h3>{{item.exercise}}</h3>
+				<p>Muscle Group: {{item.muscle}}</p>
+				<div>
+					<img src="{{item.image}}">
+				</div>
+				<div>
+					<button class="btn btn-primary" ng-click="delete()">Nah, not this one.</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 
-	<div ng-repeat="item in planObj">
-		<img src="{{item.image}}">
-	</div>
-</div>

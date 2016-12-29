@@ -1,6 +1,8 @@
 "use strict";
 
-app.controller("homeCtrl", function($location, mainDataFactory, $scope){
+app.controller("homeCtrl", function($location, mainDataFactory, $scope, authFactory){
+
+	let user = authFactory.getUser();
 
 	$scope.movements = [];
 
@@ -15,6 +17,7 @@ app.controller("homeCtrl", function($location, mainDataFactory, $scope){
 		mainDataFactory.getSampleMuscle()
 		.then((obj)=>{
 			$scope.movements = obj;
+
 		});
 	};
 
@@ -23,6 +26,16 @@ app.controller("homeCtrl", function($location, mainDataFactory, $scope){
 		.then((obj)=>{
 			$scope.movements = obj;
 		});
+	};
+
+	$scope.save= ()=>{
+		if(user === undefined){
+			toastr.warning("Please log in or sign up.");
+			$location.url("/login");
+		} else{
+			toastr.info("You'll need a plan first. We'll take you where you can do that.");
+			$location.url("/createPlan");
+		}
 	};
 
 

@@ -33,6 +33,8 @@ app.controller("sideNavCtrl", function($scope, authFactory, $location){
 
 	$scope.logout = ()=>{
 		authFactory.logoutUser();
+		toastr.success("You've been logged out.");
+		$location.url("/");
 	};
 	
 });

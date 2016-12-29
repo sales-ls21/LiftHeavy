@@ -29,16 +29,14 @@
 	</ul>
 </nav>
 
-<div class="cardArea">
+<div class="cardArea col-md-offset-2 col-md-8">
 <h1>With these, your workouts just got <span>heavier...</span></h1>
 	<div class="row" >
-		<div class="col-md-4 searchCard" ng-repeat="item in exercises">
-			<div class="card">
+		<div class="col-md-4 card searchCard" ng-repeat="item in exercises">
 				<img src="{{item.image}}">
 				<p>The Move: {{item.exercise}}</p>
 				<p>Muscle Worked: {{item.muscle}}</p>
 				<button class="btn btn-primary" ng-click="save()">Save This</button>
-			</div>
 		</div>
 	</div>
 </div>

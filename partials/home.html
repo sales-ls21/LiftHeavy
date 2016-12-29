@@ -15,31 +15,26 @@
                     <a ng-click="getSample()" class="btn btn-primary btn-lg">Random Sample</a>
                     <a ng-click="getByMuscle()" class="btn btn-primary btn-lg">Sample By Muscle Group</a><a ng-click="getByEquipment()" class="btn btn-primary btn-lg">Sample by Equipment - Bodyweight</a>
                 </li>
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-8">
+                        <div class="cardDiv col-md-4" ng-repeat="lift in movements">
+                            <img src="{{lift.image}}">
+                            <hr>
+                            <div class="cardContent">
+                                <h4>The Move: {{lift.exercise}}</h4>
+                                <!--Text-->   
+                                <p>You'll need: {{lift.equipment}}</p>
+                                <p>Muscle Worked: {{lift.muscle}}</p>
+                                <button class="btn btn-primary" ng-click="save()">Save This</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>        
+                
             </ul>
         </div>
-    <div class="cardDiv">
-        <div class="col-md-3" ng-repeat="lift in movements">
-            <div class="card hoverable">
-                <div class="view overlay hm-white-slight">
-                    <img src="{{lift.image}}" class="img-fluid">
-                    <a>
-                        <div class="mask"></div>
-                    </a>
-                </div>
-                 <div class="card-block text-xs-center">
-                        <!--Title-->
-                        <h4 class="card-title">The Move: {{lift.exercise}}</h4>
-                        <hr>
-                        <!--Text-->   
-                        <p>You'll need: {{lift.equipment}}</p>
-                        <p>Muscle Worked: {{lift.muscle}}</p>
-                        <button class="btn btn-primary" ng-click="save()">Save This</button>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
 </div>
-        
+
              
 

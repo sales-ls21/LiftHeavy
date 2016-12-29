@@ -53,7 +53,7 @@ app.config(function($routeProvider){
 	.when("/findExercises", {
 		templateUrl: "partials/findExercises",
 		controller: "findExercisesCtrl",
-		resolve: {isAuth}
+		// resolve: {isAuth}
 	})
 	.when("/getDetails/:name",{
 		templateUrl: "partials/getDetails.html",
